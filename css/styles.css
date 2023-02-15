@@ -13,19 +13,46 @@
 
 .calculator {
   border: 1px solid #ccc;
+  background: #eaeaea;
   border-radius: 5px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 225px;
 }
 
 .button-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  padding: 20px;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+button {
+  width: 45px;
+  height: 40px;
+  border-radius: 0.75rem;
+  background:
+    linear-gradient(
+      120deg,
+      #545454 30%,
+      #a6a6a6 90%
+    );
+  color: white;
+  font-size: 1.25em;
+  border: 2px solid #545454;
+  box-shadow: -1px 1px rgb(160, 160, 160);
+}
+
+.clear {
+  background:
+    linear-gradient(
+      120deg,
+      #ee743d 20%,
+      #f4a369 80%
+    );
+  border: 2px solid #dc4f0e;
 }
 
 .plus-sign {

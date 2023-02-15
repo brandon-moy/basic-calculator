@@ -1,0 +1,12 @@
+@font-face {
+  font-family: Digital;
+  src: url("digital-7.regular.ttf");
+}
+
+.font-check {
+  font-family: Digital, sans-serif;
+}
+
+.font-second {
+  font-family: "Work Sans", sans-serif;
+}

@@ -24,12 +24,12 @@
   width: 90%;
   height: 50px;
   background: #bdc499;
-  margin: 30px auto 5px;
+  margin: 30px auto 15px;
   border-radius: 0.25rem;
   box-shadow:
     0 -1px 0 2px #90957a,
-    0 -1px 0 2.5px #e0e0e0,
-    0 -2px 2px 5px rgb(184, 184, 184);
+    0 -1px 5px 3px #e0e0e0,
+    0 -2px 2px 7.5px rgb(184, 184, 184);
 }
 
 .display {
@@ -49,9 +49,9 @@
 }
 
 button {
-  width: 45px;
-  height: 40px;
-  border-radius: 0.75rem;
+  width: 48px;
+  height: 38px;
+  border-radius: 0.5rem;
   background:
     linear-gradient(
       120deg,

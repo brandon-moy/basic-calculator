@@ -78,3 +78,7 @@ button {
   height: 100%;
   grid-area: 4 / 4 / 6 / 4;
 }
+
+button:active {
+  filter: brightness(80%);
+}

@@ -1,6 +1,6 @@
 {
   "ignoreFiles": [
-    "**/*.{js,json}",
+    "**/**/*.{js,json}",
     "**node_modules/**"
   ],
   "extends": [

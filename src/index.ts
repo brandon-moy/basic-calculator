@@ -1,9 +1,9 @@
 const $numbers = document.querySelectorAll('.num')!;
-// const $operands = document.querySelectorAll('.operator')!;
+const $operands = document.querySelectorAll('.operator')!;
 const $clearEntry = document.querySelector('.clear-entry')!;
 const $clearAll = document.querySelector('.all-clear')!;
 const $display = document.querySelector('.display')!;
-
+const $equals =document.querySelector('.equal-sign')!;
 let first:boolean = true;
 let firstHalf:string = ''
 let secondHalf:string = ''
@@ -36,8 +36,23 @@ const clearAll = (event: Event) => {
   $display.textContent = ''
 }
 
+const updateOperator = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  operation = target.value;
+  first = false;
+}
+
+// const runOperation = (event: Event) => {
+//   if (operation === '') return;
+//   value =
+// }
+
 $numbers.forEach(number => {
   number.addEventListener('click', updateNums);
+})
+
+$operands.forEach(operator => {
+  operator.addEventListener('click', updateOperator);
 })
 
 $clearEntry.addEventListener('click', clearEntry);

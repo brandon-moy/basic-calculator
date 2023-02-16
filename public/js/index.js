@@ -5,7 +5,9 @@ const $clearEntry = document.querySelector('.clear-entry');
 const $clearAll = document.querySelector('.all-clear');
 const $display = document.querySelector('.display');
 const $equals = document.querySelector('.equal-sign');
+const $posNeg = document.querySelector('.negative');
 let first = true;
+let pos = true;
 let firstHalf = '';
 let secondHalf = '';
 let operation = '';
@@ -29,25 +31,49 @@ const updateNums = (event) => {
         $display.textContent = secondHalf;
     }
 };
+const posNeg = (event) => {
+    if (first) {
+        if (pos) {
+            pos = false;
+            firstHalf = '-' + firstHalf;
+        }
+        else {
+            pos = true;
+            firstHalf = firstHalf.slice(1);
+        }
+        $display.textContent = firstHalf;
+    }
+    else {
+        if (pos) {
+            pos = false;
+            secondHalf = '-' + secondHalf;
+        }
+        else {
+            pos = true;
+            secondHalf = secondHalf.slice(1);
+        }
+        $display.textContent = secondHalf;
+    }
+};
 const clearEntry = (event) => {
     if (first)
         firstHalf = '';
     else
         secondHalf = '';
-    $display.textContent = '';
+    $display.textContent = '0';
 };
 const clearAll = (event) => {
     first = true;
     firstHalf = '';
     secondHalf = '';
     operation = '';
-    $display.textContent = '';
+    $display.textContent = '0';
 };
 const updateOperator = (event) => {
     const target = event.target;
     operation = target.value;
-    console.log(operation);
     first = false;
+    pos = true;
 };
 const runOperation = (event) => {
     if (operation === '')
@@ -68,12 +94,15 @@ const runOperation = (event) => {
         output = output.slice(10);
     }
     else if (output.length > 9 && +output > 1000000) {
-        const second = output.slice(8, output.length);
-        output = output.slice(8) + 'e' + second;
+        output = Number.parseFloat(output).toExponential(5);
+    }
+    else if (output.length > 9 && +output < 0) {
+        output = Number.parseFloat(output).toExponential(5);
     }
     firstHalf = output;
     secondHalf = '';
     operation = '';
+    pos = true;
     $display.textContent = output;
 };
 $numbers.forEach(number => {
@@ -82,6 +111,7 @@ $numbers.forEach(number => {
 $operands.forEach(operator => {
     operator.addEventListener('click', updateOperator);
 });
+$posNeg.addEventListener('click', posNeg);
 $equals.addEventListener('click', runOperation);
 $clearEntry.addEventListener('click', clearEntry);
 $clearAll.addEventListener('click', clearAll);

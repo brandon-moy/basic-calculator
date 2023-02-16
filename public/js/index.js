@@ -91,9 +91,9 @@ const runOperation = (event) => {
         output = String(+firstHalf + +secondHalf);
     }
     if (output.length > 9 && output.includes('.')) {
-        output = output.slice(10);
+        output = output.slice(0, 10);
     }
-    else if (output.length > 9 && +output > 1000000) {
+    else if (output.length > 9 && +output > 999999999) {
         output = Number.parseFloat(output).toExponential(5);
     }
     else if (output.length > 9 && +output < 0) {

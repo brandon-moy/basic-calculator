@@ -84,8 +84,8 @@ const runOperation = (event: Event) => {
   }
 
   if (output.length > 9 && output.includes('.')) {
-    output = output.slice(10);
-  }  else if (output.length > 9 && +output > 1000000) {
+    output = output.slice(0, 11);
+  }  else if (output.length > 9 && +output > 999999999) {
     output = Number.parseFloat(output).toExponential(5);
   } else if (output.length > 9 && +output < 0) {
     output = Number.parseFloat(output).toExponential(5);
